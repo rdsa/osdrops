@@ -2446,7 +2446,7 @@
       "title": "Rogue's Den",
       "cumulative": false,
       "empty": false,
-      "grid": ["grid-vertical", "grid-v4"],
+      "grid": ["grid-vertical", "grid-v5"],
       "items": [
         {
           "id": 180,
