@@ -1149,6 +1149,26 @@
       ]
     },
     {
+      "title": "Wyrm",
+      "cumulative": false,
+      "empty": false,
+      "grid": ["grid-horizontal", "grid-h2"],
+      "items": [
+        {
+          "id": 239,
+          "unlocked": false,
+          "title": "Dragon Harpoon",
+          "src": "Dragon_harpoon.png"
+        },
+        {
+          "id": 241,
+          "unlocked": false,
+          "title": "Dragon Sword",
+          "src": "Dragon_sword.png"
+        }
+      ]
+    },
+    {
       "title": "Zulrah",
       "cumulative": false,
       "empty": false,
@@ -2953,22 +2973,10 @@
           "src": "Kodai_insignia.png"
         },
         {
-          "id": 237,
-          "unlocked": false,
-          "title": "Dinh's Bulwark",
-          "src": "Dinh's_bulwark.png"
-        },
-        {
           "id": 238,
           "unlocked": false,
           "title": "Dragon Claws",
           "src": "Dragon_claws.png"
-        },
-        {
-          "id": 239,
-          "unlocked": false,
-          "title": "Dragon Harpoon",
-          "src": "Dragon_harpoon.png"
         },
         {
           "id": 240,
@@ -2977,10 +2985,22 @@
           "src": "Dragon_hunter_crossbow.png"
         },
         {
-          "id": 241,
+          "id": 235,
           "unlocked": false,
-          "title": "Dragon Sword",
-          "src": "Dragon_sword.png"
+          "title": "Arcane Prayer Scroll",
+          "src": "Arcane_prayer_scroll.png"
+        },
+        {
+          "id": 236,
+          "unlocked": false,
+          "title": "Dexterous Prayer Scroll",
+          "src": "Dexterous_prayer_scroll.png"
+        },
+        {
+          "id": 244,
+          "unlocked": false,
+          "title": "Torn Prayer Scroll",
+          "src": "Torn_prayer_scroll.png"
         },
         {
           "id": 242,
@@ -3001,22 +3021,10 @@
           "src": "Twisted_buckler.png"
         },
         {
-          "id": 235,
+          "id": 237,
           "unlocked": false,
-          "title": "Arcane Prayer Scroll",
-          "src": "Arcane_prayer_scroll.png"
-        },
-        {
-          "id": 236,
-          "unlocked": false,
-          "title": "Dexterous Prayer Scroll",
-          "src": "Dexterous_prayer_scroll.png"
-        },
-        {
-          "id": 244,
-          "unlocked": false,
-          "title": "Torn Prayer Scroll",
-          "src": "Torn_prayer_scroll.png"
+          "title": "Dinh's Bulwark",
+          "src": "Dinh's_bulwark.png"
         }
       ]
     },
@@ -3283,7 +3291,7 @@
       ]
     },
     {
-      "title": "Emote Enchancers",
+      "title": "Emote Enhancers",
       "cumulative": false,
       "empty": false,
       "grid": ["grid-horizontal", "grid-h4"],
