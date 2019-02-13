@@ -1,6 +1,7 @@
 <template>
   <transition name="fade">
     <v-btn
+      title="Back to Top"
       fixed
       bottom
       left

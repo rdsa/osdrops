@@ -2,12 +2,17 @@
   <div>
     <v-dialog v-model="dialog" max-width="600px">
       <v-btn
+        title="Share"
         slot="activator"
         dark
         :ripple="false"
         color="main-color"
         @click="genURL"
-        >Share</v-btn
+        fixed
+        bottom
+        right
+        fab
+        ><v-icon dark>share</v-icon></v-btn
       >
       <v-card>
         <v-card-title class="subheading text-xs-center"
