@@ -57,6 +57,7 @@
             <span class="main-color--text headline">Donators</span>
           </div>
           <div>
+            <p>Thank you!</p>
             <v-data-table
               class="elevation-1"
               :items="donators"
