@@ -20,12 +20,21 @@
         >GitHub</a
       >
     </p>
+    <p>
+      Item images from the
+      <a
+        href="https://oldschool.runescape.wiki"
+        target="_blank"
+        class="blue--text text--lighten-2"
+        >OSRS Wiki</a
+      >
+    </p>
   </footer>
 </template>
 
 <style scoped>
 footer {
-  height: 75px;
+  height: 100px;
 }
 p {
   margin: 0.5em;
