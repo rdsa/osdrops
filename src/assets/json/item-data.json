@@ -967,6 +967,20 @@
       ]
     },
     {
+      "title": "Hespori",
+      "cumulative": false,
+      "empty": false,
+      "grid": [],
+      "items": [
+        {
+          "id": 644,
+          "unlocked": false,
+          "title": "Bottomless Compost Bucket",
+          "src": "Bottomless_compost_bucket.png"
+        }
+      ]
+    },
+    {
       "title": "Hydra",
       "cumulative": false,
       "empty": false,
