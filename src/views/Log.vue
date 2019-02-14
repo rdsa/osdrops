@@ -12,26 +12,26 @@
         :editable="editable"
         :key="title"
       />
+      <template v-if="editable">
+        <DialogBinary
+          :cardText="'Remove all items?'"
+          :btnText="'Remove all items'"
+          :action="'Remove'"
+          :snackText="'All items removed'"
+          @confirm="clearStorage"
+        />
+        <DialogShare />
+      </template>
+      <template v-else>
+        <DialogBinary
+          :cardText="'Replace your log with this one?'"
+          :btnText="'Replace Log'"
+          :action="'Replace'"
+          :snackText="'Log Replaced'"
+          @confirm="replace"
+        />
+      </template>
     </v-container>
-    <template v-if="editable">
-      <BinaryDialog
-        :cardText="'Remove all items?'"
-        :btnText="'Remove all items'"
-        :action="'Remove'"
-        :snackText="'All items removed'"
-        @confirm="clearStorage"
-      />
-      <ShareDialog />
-    </template>
-    <template v-else>
-      <BinaryDialog
-        :cardText="'Replace your log with this one?'"
-        :btnText="'Replace Log'"
-        :action="'Replace'"
-        :snackText="'Log Replaced'"
-        @confirm="replace"
-      />
-    </template>
     <BackToTop />
   </div>
 </template>
@@ -40,15 +40,15 @@
 import ItemSection from "@/components/ItemSection.vue";
 import ItemSearch from "@/components/ItemSearch.vue";
 import BackToTop from "@/components/BackToTop.vue";
-import BinaryDialog from "@/components/BinaryDialog.vue";
-import ShareDialog from "@/components/ShareDialog.vue";
+import DialogBinary from "@/components/DialogBinary.vue";
+import DialogShare from "@/components/DialogShare.vue";
 import itemData from "@/assets/json/item-data.json";
 import { mapActions } from "vuex";
 
 export default {
   components: {
-    BinaryDialog,
-    ShareDialog,
+    DialogBinary,
+    DialogShare,
     ItemSection,
     ItemSearch,
     BackToTop
