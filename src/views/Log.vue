@@ -1,5 +1,5 @@
 <template>
-  <div class="text-xs-center mb-5">
+  <div class="text-xs-center">
     <v-container>
       <template v-if="!editable && rsn !== ''">
         <h2 class="main-color--text--darker">{{ rsn }} Collection Log</h2>

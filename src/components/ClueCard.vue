@@ -56,19 +56,6 @@ export default {
 </script>
 
 <style scoped>
-.v-card {
-  margin: 1em;
-  width: 20em;
-  transition: box-shadow 300ms ease-in-out;
-}
-
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1em;
-}
-
 .clue-input {
   width: 4em;
   margin: 1em 1em 1em 0;

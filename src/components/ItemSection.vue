@@ -1,7 +1,7 @@
 <template>
-  <section v-show="!empty">
-    <hr class="main-color" />
-    <h2 class="main-color--text--darker">{{ title }}</h2>
+  <section class="section" v-show="!empty">
+    <hr class="main-color section-divider" />
+    <h2 class="main-color--text--darker section-title">{{ title }}</h2>
     <v-layout justify-center>
       <v-flex xs12 md11>
         <div class="section-content">
@@ -41,15 +41,15 @@ export default {
 </script>
 
 <style scoped>
-hr {
+.section {
+  margin-bottom: 1rem;
+}
+.section-divider {
   border-width: 0;
   height: 1px;
 }
-h2 {
-  margin: 1rem;
-}
-section {
-  margin: 1rem 0 1rem 0;
+.section-title {
+  margin-top: 1rem;
 }
 .section-content {
   width: 100%;
@@ -57,5 +57,15 @@ section {
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
+}
+.v-card {
+  margin: 1rem;
+  width: 20em;
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 </style>

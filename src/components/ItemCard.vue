@@ -135,68 +135,45 @@ export default {
 </script>
 
 <style scoped>
-.v-card {
-  margin: 1em;
-  width: 20em;
-}
-
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1em;
-}
-
 .grid-horizontal {
   display: inline-grid;
   grid-gap: 11px;
   grid-auto-flow: row;
   grid-template-rows: repeat(auto-fit, 1fr);
 }
-
 .grid-vertical {
   display: inline-grid;
   grid-gap: 11px;
   grid-auto-flow: column;
   grid-template-columns: repeat(auto-fit, 1fr);
 }
-
 .grid-v2 {
   grid-template-rows: repeat(2, 1fr);
 }
-
 .grid-v3 {
   grid-template-rows: repeat(3, 1fr);
 }
-
 .grid-v4 {
   grid-template-rows: repeat(4, 1fr);
 }
-
 .grid-v5 {
   grid-template-rows: repeat(5, 1fr);
 }
-
 .grid-v6 {
   grid-template-rows: repeat(6, 1fr);
 }
-
 .grid-h2 {
   grid-template-columns: repeat(2, 1fr);
 }
-
 .grid-h3 {
   grid-template-columns: repeat(3, 1fr);
 }
-
 .grid-h4 {
   grid-template-columns: repeat(4, 1fr);
 }
-
 .grid-h5 {
   grid-template-columns: repeat(5, 1fr);
 }
-
 .grid-h6 {
   grid-template-columns: repeat(6, 1fr);
 }

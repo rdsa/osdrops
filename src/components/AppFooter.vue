@@ -37,6 +37,6 @@ footer {
   height: 100px;
 }
 p {
-  margin: 0.5em;
+  margin: 0.5rem;
 }
 </style>

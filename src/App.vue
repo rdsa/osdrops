@@ -46,8 +46,8 @@ export default {
   color: #63ccff !important;
 }
 .v-card {
-  padding: 1em;
-  margin: 1em;
+  padding: 1rem;
+  margin: 1rem;
   width: auto;
   border-radius: 8px;
 }
@@ -55,7 +55,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 * {
   box-sizing: border-box;

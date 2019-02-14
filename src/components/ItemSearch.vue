@@ -40,6 +40,6 @@ export default {
 
 <style scoped>
 .search-margin {
-  margin: 2em 0 3em 0;
+  margin: 1rem 0 2.5rem 0;
 }
 </style>
