@@ -18,8 +18,7 @@ export default {
   data() {
     return {
       id: this.item.id,
-      title: this.item.title,
-      src: this.item.src
+      title: this.item.title
     };
   },
   methods: {
@@ -37,13 +36,25 @@ export default {
   computed: {
     unlocked: function() {
       return this.item.unlocked;
+    },
+    src: function() {
+      return this.item.title.includes("Page")
+        ? this.item.title
+            .toLowerCase()
+            .slice(0, -2)
+            .replace(/ /g, "_") + ".png"
+        : this.item.title.toLowerCase().replace(/ /g, "_") + ".png";
     }
   },
   mounted: function() {
     if (this.editable) {
-      this.item.unlocked = this.$store.getters.isUnlocked(this.id);
+      this.$set(this.item, "unlocked", this.$store.getters.isUnlocked(this.id));
     } else {
-      this.item.unlocked = this.$store.getters.isInTempData(this.id);
+      this.$set(
+        this.item,
+        "unlocked",
+        this.$store.getters.isInTempData(this.id)
+      );
     }
   }
 };
@@ -51,7 +62,7 @@ export default {
 
 <style scoped>
 .item {
-  opacity: 0.5;
+  opacity: 0.4;
 }
 .editable {
   cursor: pointer;

@@ -121,6 +121,7 @@ export default {
     }
   },
   mounted: function() {
+    this.$set(this.card, "empty", false);
     if (this.editable) {
       this.unlocked = this.items
         .map(item => this.$store.getters.isUnlocked(item.id))
@@ -137,13 +138,13 @@ export default {
 <style scoped>
 .grid-horizontal {
   display: inline-grid;
-  grid-gap: 11px;
+  grid-gap: 10px;
   grid-auto-flow: row;
   grid-template-rows: repeat(auto-fit, 1fr);
 }
 .grid-vertical {
   display: inline-grid;
-  grid-gap: 11px;
+  grid-gap: 10px;
   grid-auto-flow: column;
   grid-template-columns: repeat(auto-fit, 1fr);
 }

@@ -18,6 +18,7 @@
           v-model="count"
           :label="difficulty"
           :readonly="!editable"
+          :hide-details="true"
         />
       </v-flex>
     </v-layout>
@@ -35,7 +36,7 @@ export default {
       difficulty: this.clue.difficulty,
       threshold: this.clue.threshold,
       title: this.clue.title,
-      src: this.clue.src
+      src: this.clue.title.toLowerCase().replace(/ /g, "_") + ".png"
     };
   },
   methods: {
@@ -64,14 +65,12 @@ export default {
 <style scoped>
 .clue-icon {
   margin: 0 0.5em;
-  opacity: 0.5;
+  opacity: 0.35;
 }
-
 .clue-input {
   width: 4em;
   margin: 1em 1em 1em 0;
 }
-
 .unlocked {
   opacity: 1;
 }
