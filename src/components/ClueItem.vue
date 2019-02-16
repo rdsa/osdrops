@@ -65,7 +65,7 @@ export default {
 <style scoped>
 .clue-icon {
   margin: 0 0.5em;
-  opacity: 0.35;
+  opacity: 0.4;
 }
 .clue-input {
   width: 4em;
