@@ -6,26 +6,20 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     storedItems: JSON.parse(localStorage.getItem("items")) || {},
-    clues: JSON.parse(localStorage.getItem("clues")) || {
-      Easy: 0,
-      Medium: 0,
-      Hard: 0,
-      Elite: 0,
-      Master: 0
-    },
+    clues: JSON.parse(localStorage.getItem("clues")) || resetClues(),
     rsn: localStorage.getItem("rsn") || "",
     search: "",
     cleared: false,
-    tempItems: JSON.parse(sessionStorage.getItem("items")) || {},
-    tempClues: JSON.parse(sessionStorage.getItem("clues")) || {
-      Easy: 0,
-      Medium: 0,
-      Hard: 0,
-      Elite: 0,
-      Master: 0
-    }
+    sessionItems: JSON.parse(sessionStorage.getItem("items")) || {},
+    sessionClues: JSON.parse(sessionStorage.getItem("clues")) || resetClues(),
+    dark: JSON.parse(localStorage.getItem("dark")) || false,
+    compact: JSON.parse(localStorage.getItem("compact")) || false,
+    hideUnlocked: false
   },
   getters: {
+    getSearch: state => {
+      return state.search.toLowerCase();
+    },
     getRSN: state => {
       return state.rsn;
     },
@@ -35,26 +29,33 @@ export default new Vuex.Store({
     getClues: state => {
       return state.clues;
     },
-    getClueCount: state => difficulty => {
-      return state.clues[difficulty];
+    getClueCount: state => payload => {
+      return payload.editable
+        ? state.clues[payload.difficulty]
+        : state.sessionClues[payload.difficulty];
     },
-    getTempClueCount: state => difficulty => {
-      return state.tempClues[difficulty];
+    getTotalClueCount: state => editable => {
+      return Object.values(editable ? state.clues : state.sessionClues).reduce(
+        (a, b) => +a + +b,
+        0
+      );
     },
-    getTotalClueCount: state => {
-      return Object.values(state.clues).reduce((a, b) => +a + +b, 0);
-    },
-    getTempTotalClueCount: state => {
-      return Object.values(state.tempClues).reduce((a, b) => +a + +b, 0);
-    },
-    isUnlocked: state => item => {
-      return typeof state.storedItems[item] !== "undefined";
-    },
-    isInTempData: state => item => {
-      return typeof state.tempItems[item] !== "undefined";
+    isUnlocked: state => payload => {
+      return payload.editable
+        ? typeof state.storedItems[payload.item] !== "undefined"
+        : typeof state.sessionItems[payload.item] !== "undefined";
     },
     isCleared: state => {
       return state.cleared;
+    },
+    isDarkTheme: state => {
+      return state.dark;
+    },
+    isCompactTheme: state => {
+      return state.compact;
+    },
+    hideUnlocked: state => {
+      return state.hideUnlocked;
     }
   },
   mutations: {
@@ -66,17 +67,17 @@ export default new Vuex.Store({
     },
     CLEAR_STORAGE(state) {
       state.storedItems = {};
-      state.clues = { Easy: 0, Medium: 0, Hard: 0, Elite: 0, Master: 0 };
+      state.clues = resetClues();
       state.rsn = "";
       state.cleared = !state.cleared;
     },
     REPLACE_STORAGE(state) {
-      state.storedItems = state.tempItems;
-      state.clues = state.tempClues;
+      state.storedItems = state.sessionItems;
+      state.clues = state.sessionClues;
     },
-    ADD_TEMP(state, payload) {
-      state.tempItems = payload.items;
-      state.tempClues = payload.clues;
+    SET_SESSION_DATA(state, payload) {
+      state.sessionItems = payload.items;
+      state.sessionClues = payload.clues;
     },
     SET_SEARCH(state, search) {
       state.search = search;
@@ -86,6 +87,15 @@ export default new Vuex.Store({
     },
     ADD_RSN(state, rsn) {
       state.rsn = rsn;
+    },
+    TOGGLE_DARK(state) {
+      state.dark = !state.dark;
+    },
+    TOGGLE_COMPACT(state) {
+      state.compact = !state.compact;
+    },
+    TOGGLE_UNLOCKED(state) {
+      state.hideUnlocked = !state.hideUnlocked;
     }
   },
   actions: {
@@ -116,20 +126,39 @@ export default new Vuex.Store({
       localStorage.setItem("clues", JSON.stringify(clues));
     },
     setSessionData: (context, payload) => {
-      sessionStorage.removeItem("items");
-      sessionStorage.removeItem("clues");
-      context.commit("ADD_TEMP", payload);
+      context.commit("SET_SESSION_DATA", payload);
       sessionStorage.setItem("items", JSON.stringify(payload.items));
       sessionStorage.setItem("clues", JSON.stringify(payload.clues));
     },
     replaceLog: context => {
       context.commit("REPLACE_STORAGE");
-      localStorage.setItem("items", JSON.stringify(context.state.tempItems));
-      localStorage.setItem("clues", JSON.stringify(context.state.tempClues));
+      localStorage.setItem("items", JSON.stringify(context.state.sessionItems));
+      localStorage.setItem("clues", JSON.stringify(context.state.sessionClues));
     },
     addRSN: (context, rsn) => {
       context.commit("ADD_RSN", rsn);
       localStorage.setItem("rsn", rsn);
+    },
+    toggleCompactTheme: context => {
+      context.commit("TOGGLE_COMPACT");
+      localStorage.setItem("compact", JSON.stringify(context.state.compact));
+    },
+    toggleDarkTheme: context => {
+      context.commit("TOGGLE_DARK");
+      localStorage.setItem("dark", JSON.stringify(context.state.dark));
+    },
+    toggleUnlocked: context => {
+      context.commit("TOGGLE_UNLOCKED");
     }
   }
 });
+
+function resetClues() {
+  return {
+    Easy: 0,
+    Medium: 0,
+    Hard: 0,
+    Elite: 0,
+    Master: 0
+  };
+}

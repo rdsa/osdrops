@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-dialog v-model="dialog" max-width="300px">
-      <v-btn dark :ripple="false" slot="activator" color="main-color">{{
+      <v-btn color="primary" dark :ripple="false" slot="activator">{{
         btnText
       }}</v-btn>
       <v-card>
@@ -11,11 +11,11 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn flat @click.stop="cancel">Cancel</v-btn>
-          <v-btn color="main-color" dark @click="confirm">{{ action }}</v-btn>
+          <v-btn color="primary" dark @click="confirm">{{ action }}</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
-    <v-snackbar :timeout="2500" color="main-color" v-model="snackbar">
+    <v-snackbar color="primary" :timeout="2500" v-model="snackbar">
       {{ snackText }}
       <v-btn dark flat @click.native="snackbar = false">Close</v-btn>
     </v-snackbar>

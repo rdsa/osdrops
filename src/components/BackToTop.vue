@@ -7,7 +7,7 @@
       left
       fab
       dark
-      class="main-color hidden-sm-and-down"
+      class="primary hidden-sm-and-down"
       v-scroll="onScroll"
       v-show="show"
       :ripple="false"

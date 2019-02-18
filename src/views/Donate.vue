@@ -4,7 +4,7 @@
       <v-flex xs12 sm10 md6>
         <v-card>
           <div class="card-header">
-            <span class="main-color--text headline">Donate</span>
+            <span class="headline">Donate</span>
           </div>
           <div>
             <p class="subheading">
@@ -45,6 +45,7 @@
             <p>
               or
               <a
+                class="blue--text"
                 href="https://commerce.coinbase.com/checkout/049dfcb5-c14e-4682-90cd-dc1d3242c2b6"
               >
                 <span>Donate with Crypto</span>
@@ -54,7 +55,7 @@
         </v-card>
         <v-card>
           <div class="card-header">
-            <span class="main-color--text headline">Donators</span>
+            <span class="headline">Donators</span>
           </div>
           <div>
             <p>Thank you!</p>

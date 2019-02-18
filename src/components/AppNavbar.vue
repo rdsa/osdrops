@@ -7,18 +7,19 @@
         class="hidden-md-and-up"
       ></v-toolbar-side-icon>
       <v-toolbar-title>
-        <router-link to="/" class="main-color--text--light nav-title"
+        <router-link to="/" class="light-blue-text nav-title"
           >OS Drops</router-link
         >
       </v-toolbar-title>
       <v-spacer></v-spacer>
+      <SettingsMenu />
       <v-toolbar-items class="hidden-sm-and-down">
         <template v-for="route in routes">
           <v-btn
             :key="route.name"
             flat
             class="text-capitalize subheading font-weight-regular"
-            active-class="main-color--text--light"
+            active-class="light-blue-text"
             :to="route.to"
           >
             {{ route.name }}
@@ -40,7 +41,7 @@
         <v-list-tile
           v-for="route in routes"
           :key="route.name"
-          active-class="main-color--text--light"
+          active-class="light-blue-text"
           :to="route.to"
         >
           <v-list-tile-action>
@@ -56,7 +57,12 @@
 </template>
 
 <script>
+import SettingsMenu from "@/components/SettingsMenu.vue";
+
 export default {
+  components: {
+    SettingsMenu
+  },
   data: () => ({
     drawer: null,
     routes: [
@@ -71,5 +77,8 @@ export default {
 <style scoped>
 a {
   text-decoration: none;
+}
+.light-blue-text {
+  color: #63ccff;
 }
 </style>

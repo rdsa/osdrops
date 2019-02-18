@@ -47,28 +47,18 @@ export default {
     }
   },
   mounted: function() {
-    if (this.editable) {
-      this.$set(this.item, "unlocked", this.$store.getters.isUnlocked(this.id));
-    } else {
-      this.$set(
-        this.item,
-        "unlocked",
-        this.$store.getters.isInTempData(this.id)
-      );
-    }
+    this.$set(
+      this.item,
+      "unlocked",
+      this.$store.getters.isUnlocked({ editable: this.editable, item: this.id })
+    );
   }
 };
 </script>
 
 <style scoped>
-.item {
-  opacity: 0.4;
-}
 .editable {
   cursor: pointer;
-}
-.unlocked {
-  opacity: 1;
 }
 @supports not (grid-auto-flow: row) {
   .item {

@@ -4,15 +4,15 @@
       <v-btn
         title="Share"
         slot="activator"
-        dark
+        color="primary"
         :ripple="false"
-        color="main-color"
         @click="genURL"
+        dark
         fixed
         bottom
         right
         fab
-        ><v-icon dark>share</v-icon></v-btn
+        ><v-icon>share</v-icon></v-btn
       >
       <v-card>
         <v-card-title class="subheading text-xs-center"
@@ -37,11 +37,13 @@
         <v-card-actions>
           <v-btn flat @click.stop="dialog = false">Close</v-btn>
           <v-spacer></v-spacer>
-          <v-icon @click="copy" title="Copy to clipboard">file_copy</v-icon>
+          <v-icon color="primary" @click="copy" title="Copy to clipboard"
+            >file_copy</v-icon
+          >
         </v-card-actions>
       </v-card>
     </v-dialog>
-    <v-snackbar :timeout="2500" color="main-color" v-model="snackbar">
+    <v-snackbar color="primary" :timeout="2500" v-model="snackbar">
       {{ message }}
       <v-btn dark flat @click.native="snackbar = false">Close</v-btn>
     </v-snackbar>
@@ -114,9 +116,9 @@ export default {
 
 <style scoped>
 .url-textarea {
+  resize: none;
   width: 100%;
   padding: 0.5em;
-  resize: none;
   min-height: 10em;
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 1px 5px 0 rgba(0, 0, 0, 0.12);

@@ -2,16 +2,21 @@
   <div class="text-xs-center">
     <v-container>
       <template v-if="!editable && rsn !== ''">
-        <h2 class="main-color--text--darker">{{ rsn }} Collection Log</h2>
+        <h2 class="primary--text">{{ rsn }} Collection Log</h2>
       </template>
       <ItemSearch />
-      <ItemSection
-        v-for="(section, title) in sections"
-        :title="title"
-        :cards="section"
-        :editable="editable"
-        :key="title"
-      />
+      <template v-if="compact">
+        <ItemSection :cards="cards" :editable="editable" :compact="compact" />
+      </template>
+      <template v-else>
+        <ItemSection
+          v-for="(section, title) in sections"
+          :title="title"
+          :cards="section"
+          :editable="editable"
+          :key="title"
+        />
+      </template>
       <template v-if="editable">
         <DialogBinary
           :cardText="'Remove all items?'"
@@ -56,7 +61,8 @@ export default {
   data: () => ({
     sections: itemData,
     rsn: "",
-    editable: !window.location.href.includes("/log")
+    editable: !window.location.href.includes("/log"),
+    cards: []
   }),
   methods: {
     ...mapActions(["clear", "addItem", "setSessionData", "replaceLog"]),
@@ -67,7 +73,13 @@ export default {
       this.replaceLog();
     }
   },
+  computed: {
+    compact: function() {
+      return this.$store.getters.isCompactTheme;
+    }
+  },
   created: function() {
+    this.cards = [].concat.apply([], Object.values(itemData));
     if (!this.editable) {
       if (this.$route.query.items && this.$route.query.clues) {
         let tempItems = {};
@@ -102,3 +114,12 @@ export default {
   }
 };
 </script>
+
+<style>
+.item {
+  opacity: 0.3;
+}
+.unlocked {
+  opacity: 1;
+}
+</style>

@@ -1,9 +1,9 @@
 <template>
-  <v-card v-show="!empty">
-    <div class="card-header">
-      <span class="subheading main-color--text--darker">{{ card.title }}</span>
-      <v-progress-circular :value="step" :rotate="270" color="main-color">
-        <v-icon v-if="step === 100" color="main-color">done</v-icon>
+  <v-card v-show="!empty" :class="{ compact }">
+    <div class="item-card-header">
+      <span class="subheading">{{ card.title }}</span>
+      <v-progress-circular :value="step" :rotate="270" color="primary">
+        <v-icon v-if="step === 100" color="primary">done</v-icon>
       </v-progress-circular>
     </div>
     <div :class="card.grid">
@@ -29,7 +29,8 @@ export default {
   },
   props: {
     card: Object,
-    editable: Boolean
+    editable: Boolean,
+    compact: Boolean
   },
   data() {
     return {
@@ -45,7 +46,7 @@ export default {
       if (this.card.cumulative) {
         const index = this.items.indexOf(item);
         this.items.slice(0, index).forEach(i => {
-          if (!this.$store.getters.isUnlocked(i.id)) {
+          if (!this.$store.getters.isUnlocked({ editable: true, item: i.id })) {
             this.addItem(i.id);
             this.unlocked += 1;
             i.unlocked = true;
@@ -61,7 +62,9 @@ export default {
         const index = this.items.indexOf(item);
         const unlockedItemsAfterIndex = this.items
           .slice(index + 1)
-          .filter(i => this.$store.getters.isUnlocked(i.id));
+          .filter(i =>
+            this.$store.getters.isUnlocked({ editable: true, item: i.id })
+          );
         if (unlockedItemsAfterIndex.length > 0) {
           unlockedItemsAfterIndex.forEach(i => {
             this.removeItem(i.id);
@@ -87,16 +90,18 @@ export default {
     filteredItems: function() {
       if (
         this.$store.state.search.length === 0 ||
-        this.card.title
-          .toLowerCase()
-          .includes(this.$store.state.search.toLowerCase())
+        this.card.title.toLowerCase().includes(this.$store.getters.getSearch)
       ) {
-        return this.items;
+        return this.$store.getters.hideUnlocked
+          ? this.items.filter(
+              item => this.$store.getters.hideUnlocked && !item.unlocked
+            )
+          : this.items;
       } else {
-        return this.items.filter(item =>
-          item.title
-            .toLowerCase()
-            .includes(this.$store.state.search.toLowerCase())
+        return this.items.filter(
+          item =>
+            item.title.toLowerCase().includes(this.$store.getters.getSearch) ||
+            (this.$store.getters.hideUnlocked && !item.unlocked)
         );
       }
     },
@@ -122,20 +127,26 @@ export default {
   },
   mounted: function() {
     this.$set(this.card, "empty", false);
-    if (this.editable) {
-      this.unlocked = this.items
-        .map(item => this.$store.getters.isUnlocked(item.id))
-        .filter(Boolean).length;
-    } else {
-      this.unlocked = this.items
-        .map(item => this.$store.getters.isInTempData(item.id))
-        .filter(Boolean).length;
-    }
+    this.unlocked = this.items
+      .map(item =>
+        this.$store.getters.isUnlocked({
+          editable: this.editable,
+          item: item.id
+        })
+      )
+      .filter(Boolean).length;
   }
 };
 </script>
 
 <style scoped>
+.item-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+}
 .grid-horizontal {
   display: inline-grid;
   grid-gap: 10px;

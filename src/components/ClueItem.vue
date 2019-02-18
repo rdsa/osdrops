@@ -3,7 +3,7 @@
     <v-layout align-center justify-center>
       <v-flex xs5>
         <img
-          :class="['clue-icon', { unlocked: count >= threshold }]"
+          :class="['item', { unlocked: count >= threshold }]"
           :src="getSrc()"
           :alt="title"
           :title="title"
@@ -11,14 +11,14 @@
       </v-flex>
       <v-flex xs7>
         <v-text-field
+          :hide-details="true"
           class="clue-input"
-          color="main-color"
+          color="primary"
           type="number"
           min="0"
-          v-model="count"
           :label="difficulty"
           :readonly="!editable"
-          :hide-details="true"
+          v-model="count"
         />
       </v-flex>
     </v-layout>
@@ -47,9 +47,10 @@ export default {
   computed: {
     count: {
       get() {
-        return this.editable
-          ? this.$store.getters.getClueCount(this.difficulty)
-          : this.$store.getters.getTempClueCount(this.difficulty);
+        return this.$store.getters.getClueCount({
+          difficulty: this.difficulty,
+          editable: this.editable
+        });
       },
       set(value) {
         this.$store.dispatch("setClues", {
@@ -61,17 +62,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.clue-icon {
-  margin: 0 0.5em;
-  opacity: 0.4;
-}
-.clue-input {
-  width: 4em;
-  margin: 1em 1em 1em 0;
-}
-.unlocked {
-  opacity: 1;
-}
-</style>

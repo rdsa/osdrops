@@ -7,9 +7,9 @@
         v-model="search"
         hide-details
         append-icon="search"
-        color="main-color"
+        color="black"
         label="Search Items"
-        class="search-margin"
+        class="item-search"
       />
     </v-flex>
   </v-layout>
@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style scoped>
-.search-margin {
+.item-search {
   margin: 1rem 0 2.5rem 0;
 }
 </style>
