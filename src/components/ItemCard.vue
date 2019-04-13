@@ -1,9 +1,18 @@
 <template>
   <v-card v-show="!empty" :class="{ compact }">
     <div class="item-card-header">
-      <span class="subheading">{{ card.title }}</span>
-      <v-progress-circular :value="step" :rotate="270" color="primary">
-        <v-icon v-if="step === 100" color="primary">done</v-icon>
+      <span class="subheading" :class="{ 'green--text': completed }">
+        {{ card.title }}
+      </span>
+      <v-progress-circular
+        :value="step"
+        :rotate="270"
+        color="blue"
+        :class="{ 'green--text': completed }"
+      >
+        <v-icon v-if="completed" :class="[{ 'green--text': completed }]">
+          done
+        </v-icon>
       </v-progress-circular>
     </div>
     <div :class="card.grid">
@@ -110,6 +119,9 @@ export default {
     },
     cleared: function() {
       return this.$store.getters.isCleared;
+    },
+    completed: function() {
+      return this.step === 100;
     }
   },
   watch: {
