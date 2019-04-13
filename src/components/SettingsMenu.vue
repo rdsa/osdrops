@@ -3,7 +3,7 @@
     <v-btn slot="activator" icon>
       <v-icon>settings</v-icon>
     </v-btn>
-    <v-list>
+    <v-list class="menu-list">
       <v-list-tile>
         <v-switch
           v-model="dark"
@@ -62,3 +62,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.menu-list {
+  padding: 0 0 1.25em 0;
+}
+</style>
