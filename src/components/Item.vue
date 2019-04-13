@@ -38,12 +38,12 @@ export default {
       return this.item.unlocked;
     },
     src: function() {
-      return this.item.title.includes("Page")
-        ? this.item.title
+      return this.title.includes("Page")
+        ? this.title
             .toLowerCase()
             .slice(0, -2)
             .replace(/ /g, "_") + ".png"
-        : this.item.title.toLowerCase().replace(/ /g, "_") + ".png";
+        : this.title.toLowerCase().replace(/ /g, "_") + ".png";
     }
   },
   mounted: function() {

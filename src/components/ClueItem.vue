@@ -3,7 +3,8 @@
     <v-layout align-center justify-center>
       <v-flex xs5>
         <img
-          :class="['item', { unlocked: count >= threshold }]"
+          v-if="clue.title"
+          :class="['item', { unlocked }]"
           :src="getSrc()"
           :alt="title"
           :title="title"
@@ -35,8 +36,7 @@ export default {
     return {
       difficulty: this.clue.difficulty,
       threshold: this.clue.threshold,
-      title: this.clue.title,
-      src: this.clue.title.toLowerCase().replace(/ /g, "_") + ".png"
+      title: this.clue.title
     };
   },
   methods: {
@@ -58,6 +58,12 @@ export default {
           count: value
         });
       }
+    },
+    src: function() {
+      return this.title.toLowerCase().replace(/ /g, "_") + ".png";
+    },
+    unlocked: function() {
+      return this.count >= this.threshold;
     }
   }
 };

@@ -1,15 +1,16 @@
 [
     {
+      "difficulty": "Beginner"
+    },
+    {
       "difficulty": "Easy",
       "threshold": 500,
-      "title": "Large Spade",
-      "src": "Large_spade.png"
+      "title": "Large Spade"
     },
     {
       "difficulty": "Medium",
       "threshold": 400,
-      "title": "Clueless Scroll",
-      "src": "Clueless_scroll.png"
+      "title": "Clueless Scroll"
     },
     {
       "difficulty": "Hard",
@@ -20,13 +21,11 @@
     {
       "difficulty": "Elite",
       "threshold": 200,
-      "title": "Heavy Casket",
-      "src": "Heavy_casket.png"
+      "title": "Heavy Casket"
     },
     {
       "difficulty": "Master",
       "threshold": 100,
-      "title": "Scroll Sack",
-      "src": "Scroll_sack.png"
+      "title": "Scroll Sack"
     }
 ]
