@@ -38,11 +38,8 @@ export default {
       return this.item.unlocked;
     },
     src: function() {
-      return this.title.includes("Page")
-        ? this.title
-            .toLowerCase()
-            .slice(0, -2)
-            .replace(/ /g, "_") + ".png"
+      return "src" in this.item
+        ? this.item.src
         : this.title.toLowerCase().replace(/ /g, "_") + ".png";
     }
   },
