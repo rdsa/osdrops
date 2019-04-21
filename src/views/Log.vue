@@ -90,7 +90,7 @@ export default {
 
         const tempClues = {};
         const paramClues = this.$route.query.clues.split(".");
-        const diff = ["Easy", "Medium", "Hard", "Elite", "Master"];
+        const diff = ["Beginner", "Easy", "Medium", "Hard", "Elite", "Master"];
         diff.forEach((key, i) => {
           tempClues[key] = paramClues[i];
         });
