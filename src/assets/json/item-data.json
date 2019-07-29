@@ -853,6 +853,17 @@
             ]
         },
         {
+            "title": "Sarachnis",
+            "cumulative": false,
+            "grid": [],
+            "items": [
+                {
+                    "id": 715,
+                    "title": "Sarachnis Cudgel"
+                }
+            ]
+        },
+        {
             "title": "Smoke Devil",
             "cumulative": false,
             "grid": [
@@ -867,6 +878,32 @@
                 {
                     "id": 352,
                     "title": "Smoke Battlestaff"
+                }
+            ]
+        },
+        {
+            "title": "The Gauntlet",
+            "cumulative": false,
+            "grid": [
+                "grid-horizontal",
+                "grid-h4"
+            ],
+            "items": [
+                {
+                    "id": 892,
+                    "title": "Blade Of Saeldor"
+                },
+                {
+                    "id": 893,
+                    "title": "Crystal Armour Seed"
+                },
+                {
+                    "id": 894,
+                    "title": "Crystal Weapon Seed"
+                },
+                {
+                    "id": 895,
+                    "title": "Gauntlet Cape"
                 }
             ]
         },
@@ -941,6 +978,24 @@
                 {
                     "id": 241,
                     "title": "Dragon Sword"
+                }
+            ]
+        },
+        {
+            "title": "Zalcano",
+            "cumulative": false,
+            "grid": [
+                "grid-horizontal",
+                "grid-h2"
+            ],
+            "items": [
+                {
+                    "id": 890,
+                    "title": "Crystal Tool Seed"
+                },
+                {
+                    "id": 891,
+                    "title": "Zalcano Shard"
                 }
             ]
         },
@@ -1547,6 +1602,10 @@
                 {
                     "id": 301,
                     "title": "Jar Of Dirt"
+                },
+                {
+                    "id": 896,
+                    "title": "Jar Of Eyes"
                 },
                 {
                     "id": 302,
@@ -2522,6 +2581,14 @@
                     "title": "Skotos"
                 },
                 {
+                    "id": 887,
+                    "title": "Smolcano"
+                },
+                {
+                    "id": 888,
+                    "title": "Sraracha"
+                },
+                {
                     "id": 82,
                     "title": "Tzrek-jad"
                 },
@@ -2536,6 +2603,10 @@
                 {
                     "id": 85,
                     "title": "Vorki"
+                },
+                {
+                    "id": 889,
+                    "title": "Youngllef"
                 }
             ]
         },
@@ -3352,15 +3423,6 @@
             ]
         },
         {
-            "title": "Heraldic Armour",
-            "cumulative": false,
-            "grid": [
-                "grid-vertical",
-                "grid-v5"
-            ],
-            "items": []
-        },
-        {
             "title": "Magic Equipment",
             "cumulative": false,
             "grid": [
@@ -3533,12 +3595,12 @@
                     "title": "Adamant Platelegs (g)"
                 },
                 {
-                    "id": 793,
-                    "title": "Adamant Plateskirt (g)"
-                },
-                {
                     "id": 782,
                     "title": "Adamant Kiteshield (g)"
+                },
+                {
+                    "id": 793,
+                    "title": "Adamant Plateskirt (g)"
                 },
                 {
                     "id": 781,
@@ -3553,12 +3615,12 @@
                     "title": "Adamant Platelegs (t)"
                 },
                 {
-                    "id": 794,
-                    "title": "Adamant Plateskirt (t)"
-                },
-                {
                     "id": 783,
                     "title": "Adamant Kiteshield (t)"
+                },
+                {
+                    "id": 794,
+                    "title": "Adamant Plateskirt (t)"
                 },
                 {
                     "id": 503,
@@ -4289,7 +4351,7 @@
             "cumulative": false,
             "grid": [
                 "grid-vertical",
-                "grid-v5"
+                "grid-v6"
             ],
             "items": [
                 {
@@ -4313,6 +4375,10 @@
                     "title": "Ancient Bracers"
                 },
                 {
+                    "id": 897,
+                    "title": "Ancient D'hide Shield"
+                },
+                {
                     "id": 540,
                     "title": "Armadyl Coif"
                 },
@@ -4331,6 +4397,10 @@
                 {
                     "id": 538,
                     "title": "Armadyl Bracers"
+                },
+                {
+                    "id": 898,
+                    "title": "Armadyl D'hide Shield"
                 },
                 {
                     "id": 545,
@@ -4353,6 +4423,10 @@
                     "title": "Bandos Bracers"
                 },
                 {
+                    "id": 899,
+                    "title": "Bandos D'hide Shield"
+                },
+                {
                     "id": 550,
                     "title": "Guthix Coif"
                 },
@@ -4371,6 +4445,10 @@
                 {
                     "id": 548,
                     "title": "Guthix Bracers"
+                },
+                {
+                    "id": 900,
+                    "title": "Guthix D'hide Shield"
                 },
                 {
                     "id": 555,
@@ -4393,6 +4471,10 @@
                     "title": "Saradomin Bracers"
                 },
                 {
+                    "id": 901,
+                    "title": "Saradomin D'hide Shield"
+                },
+                {
                     "id": 560,
                     "title": "Zamorak Coif"
                 },
@@ -4411,6 +4493,10 @@
                 {
                     "id": 558,
                     "title": "Zamorak Bracers"
+                },
+                {
+                    "id": 902,
+                    "title": "Zamorak D'hide Shield"
                 }
             ]
         },
